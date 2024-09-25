@@ -1,0 +1,24 @@
+{% extends 'myapp/index.html' %}
+{% load static %}
+
+
+{% block content %}
+<div style="width: 100%; max-width: 400px; margin: 25px auto;">
+    <h2 class="mt-5" style="letter-spacing: 1px; color: brown;">Registration</h2>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input style="color: brown;"  type="text" name="name" placeholder="enter your name.." class="form-control" style="width: 80%;"><br>
+    <input style="color: brown;"  type="email" name="email" placeholder="enter your email.." class="form-control" style="width: 80%;"><br>
+    <input style="color: brown;"  type="password" name="password" placeholder="enter your password" class="form-control" style="width: 80%;"><br>
+
+    <input type="submit" value="submit" class="btn btn-primary">
+
+</form>
+       <p style="margin-top: 15px;">All ready register ? <a href="{% url 'login' %}"> Login </a></p>
+   {% if msg %}
+      {{msg}}
+   {% endif %}
+</div>
+{% endblock content %}
+    

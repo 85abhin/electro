@@ -1,0 +1,23 @@
+{% extends 'myapp/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div style="width: 100%; max-width: 400px; margin: 25px auto;">
+        <h2 style="color: brown; letter-spacing: 1pxs;"> Login </h2>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Enter your email.." class="form-control"><br>
+            <input type="password" name="password" placeholder="Enter your password.." class="form-control"><br>
+            <input type="submit" value="Login" class="btn btn-primary">
+        </form>
+        <br>
+        <a href="{% url 'forgot_password' %}" class="btn btn-primary">Forgot password?</a>
+        <a href="{% url 'registration' %}" class="btn btn-primary">Registration</a>
+
+        {% if message %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}

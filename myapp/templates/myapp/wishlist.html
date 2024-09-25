@@ -1,0 +1,27 @@
+{% extends 'myapp/index.html' %}
+{% load static %}
+
+{% block content %}
+<table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">ItemNo</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Image</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for p in wishlist %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{p.product}}</td>
+        <td><img src="{{p.product.pic.url}}" alt="img" width="50px" height="50px"></td> 
+        <td>{{p.quantity}}</td> 
+        <td>{{p.total}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

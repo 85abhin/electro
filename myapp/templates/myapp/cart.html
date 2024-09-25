@@ -1,0 +1,33 @@
+{% extends 'myapp/index.html' %}
+{% load static %}
+
+{% block content %}
+<table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">ItemNo</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for p in products %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{p.product}}</td>
+        <td>{{p.quantity}}</td> 
+        <td>{{p.total}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  
+    
+  </table>
+  <div class="mt-5 mb-5" style="margin: 0px auto;">
+    <p class="fw-bold"> Total Cost :{{Total}} </p>
+    +
+  <p>Delivery Charges : 40 = {{Total_Amount}}</p>
+  </div>
+  <a class="m-5 btn btn-primary" href="" >Make a payment</a>
+{% endblock content %}
